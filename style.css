@@ -1,0 +1,143 @@
+:root {
+    --primary-bg: #1a1a2e;
+    --secondary-bg: #16213e;
+    --panel-bg: #0f3460;
+    --text-color: #e94560;
+    --input-bg: #1f4068;
+    --input-text: #ffffff;
+    --border-color: #e94560;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Panel Kontrol Kiri */
+.controls-panel {
+    width: 380px;
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 2px solid var(--border-color);
+}
+
+h1, h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.control-group {
+    background-color: var(--panel-bg);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+select, input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--text-color);
+    color: var(--input-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff7675;
+}
+
+#container-info {
+    font-size: 0.9em;
+    padding: 10px;
+    background-color: var(--input-bg);
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.hidden { display: none; }
+
+/* Item Material */
+.material-item {
+    border: 1px dashed var(--border-color);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.material-item .dims-box, .material-item .dims-cylinder {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.material-item input { width: 60px; }
+.material-item .material-id { width: 100%; }
+.remove-material-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    line-height: 25px;
+    background-color: #555;
+}
+
+/* Panel Viewer Kanan */
+.viewer-panel {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#canvas-container {
+    width: 100%;
+    flex-grow: 1;
+    background-color: #000;
+}
+
+canvas {
+    display: block;
+}
+
+.viewer-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.viewer-controls button {
+    width: auto;
+    padding: 8px 15px;
+}

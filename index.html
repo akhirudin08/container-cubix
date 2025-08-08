@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Loading Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="controls-panel">
+            <h1>Container Planner</h1>
+
+            <div class="control-group">
+                <h2>1. Pilih Kontainer</h2>
+                <select id="container-select">
+                    <option value="20ft">20' Standard</option>
+                    <option value="40ft">40' Standard</option>
+                    <option value="40hc">40' High Cube (HC)</option>
+                    <option value="custom">Custom</option>
+                </select>
+                <div id="container-info"></div>
+                <div id="custom-dims" class="hidden">
+                    <input type="number" id="custom-l" placeholder="Panjang (m)">
+                    <input type="number" id="custom-w" placeholder="Lebar (m)">
+                    <input type="number" id="custom-h" placeholder="Tinggi (m)">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h2>2. Tambah Material</h2>
+                <div id="material-list"></div>
+                <button id="add-material-btn">+ Tambah Material</button>
+            </div>
+             <button id="visualize-btn">▶️ Tampilkan / Atur Ulang</button>
+
+        </div>
+
+        <div class="viewer-panel">
+            <div id="canvas-container"></div>
+            <div class="viewer-controls">
+                <button id="view-top">Atas</button>
+                <button id="view-side">Samping</button>
+                <button id="view-front">Depan</button>
+                <button id="view-3d">3D</button>
+                <button id="save-pdf-btn">💾 Simpan ke PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <template id="material-item-template">
+        <div class="material-item">
+            <input type="text" class="material-id" placeholder="No. Material">
+            <select class="shape-select">
+                <option value="box">Kotak</option>
+                <option value="cylinder">Bulat</option>
+            </select>
+            <div class="dims-box">
+                P:<input type="number" class="dim-l" placeholder="P">
+                L:<input type="number" class="dim-w" placeholder="L">
+                T:<input type="number" class="dim-h" placeholder="T">
+            </div>
+            <div class="dims-cylinder hidden">
+                D:<input type="number" class="dim-d" placeholder="Dia.">
+                T:<input type="number" class="dim-h-cyl" placeholder="T">
+            </div>
+            Qty:<input type="number" class="quantity" placeholder="Jml" value="1">
+            <button class="remove-material-btn">X</button>
+        </div>
+    </template>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
